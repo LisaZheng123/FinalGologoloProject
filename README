@@ -1,0 +1,94 @@
+-Adding logos-
+    -> Adding new logo requires these arguments with these types: text(String), color(String), fontSize(Int), borderRadius(Int), backgroundColor(String), borderColor(String), padding(Int), margin(int), borderThickness(Int).
+    -> The arguments of types Int should be in the range (2, 144).
+    -> The Color arguments (color, backgroundColor, and borderColor) should be strings of hex color values.  
+
+mutation {
+  addLogo(text: "Logo Just Added", color: "#D3C6C6", fontSize: 44, borderRadius: 12, backgroundColor: "#C3AEAE", borderColor: "#A07D7D", padding: 5, margin: 6, borderThickness: 10) {
+    _id
+    lastUpdate
+    text
+    color
+    fontSize
+    borderRadius
+    backgroundColor
+    borderColor
+    padding
+    margin
+    borderThickness
+  }
+}
+
+
+-Removing logos-
+    -> Removing a logo requires argument(type): id(String)
+    -> If the id of type string has to be the id of an existing logo.
+
+mutation {
+  removeLogo (id: "5e8331b197c9ff377081ee7b") {
+    _id
+  }
+}
+
+
+-Updating logos-
+    -> Updating a logo requires these argument(type): id(String), text(String), color(String), fontSize(Int), borderRadius(Int), backgroundColor(String), borderColor(String), padding(Int), margin(int), borderThickness(Int).
+    -> The arguments of types Int should be in the range (2, 144).
+    -> The Color arguments (color, backgroundColor, and borderColor) should be strings of hex color values.  
+
+mutation {
+  updateLogo(id: "5e91451f1c68793bec316756", text: "Updated Logo", color: "#D3C6C666", fontSize: 44, borderRadius: 12, backgroundColor: "#C3AEAE", borderColor: "#A07D7D", padding: 5, margin: 6, borderThickness: 100) {
+    _id
+    lastUpdate
+    text
+    color
+    fontSize
+    borderRadius
+    backgroundColor
+    borderColor
+    padding
+    margin
+    borderThickness
+  }
+}
+
+
+-Querying logos-
+    -> There are 2 queries:
+        -> One returns all the logos.
+            -> No arguments are needed.
+            -> The logos are returned in the order that they were created.
+        -> The other one returns a specific logo.
+            -> This one requires these argument(type): id(String)
+{
+  logos {
+    _id
+    text
+    color
+    fontSize
+    lastUpdate
+    borderRadius
+    backgroundColor
+    borderColor
+    padding
+    margin
+    borderThickness
+  }
+}
+
+{
+  logo(id: "5e912ee11c68793bec31674c") {
+    _id
+    text
+    color
+    fontSize
+    lastUpdate
+    borderRadius
+    backgroundColor
+    borderColor
+    padding
+    margin
+    borderThickness
+  }
+}
+
